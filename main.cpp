@@ -16,19 +16,13 @@ struct B{
 
 int main() {
 
-    float f = 1.234;
-    int a = f; // неявное преобразование
-    cout << a << endl;
+    const char* type_name1 = typeid(A).name();
 
-    int b = (int)f; // явное преобразование
-    cout << b << endl;
+    cout << typeid(A).name() << endl;
 
-    A a_;
-    B b_;
+    A a;
 
-    // a_ = b_; // ошибка
-
-    float s = 1.23344; // неявное преобразование double к float
+    cout << "Type of a: " << typeid(a).name() << endl;
 
     int c = 3;
     short d = 10;
@@ -36,8 +30,8 @@ int main() {
     double g = 1.28847489;
 
     int result = (c * d) / (e - g * c);
-    result = (double)(c * (int)d) / ((double)e - g * (double)c);
-    cout << result;
+
+    cout << "Type of (c * d) / (e - g * c): " << typeid((c * d) / (e - g * c)).name() << endl;
 
     return 0;
 }
